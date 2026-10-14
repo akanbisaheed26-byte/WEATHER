@@ -1,20 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Atmos | Premium Weather</title>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
 
-    <div class="weather">
-        <h1>Weather App</h1>
-        <p>Check the weather in your city</p>
+    <main class="weather-app">
+        <header class="topbar">
+            <a href="#" class="brand">
+                <span class="brand-icon">◉</span>
+                atmos<span class="brand-dot">.</span>
+            </a>
+            <span class="live-badge">
+                <span class="live-dot"></span>
+                LIVE WEATHER
+            </span>
+        </header>
 
-        <button id="checkWeather">Check Weather</button>
-    </div>
+        <section class="intro">
+            <p class="eyebrow">YOUR WORLD, AT A GLANCE</p>
+            <h1>Feel the <span>forecast.</span></h1>
+            <p class="intro-text">
+                Real-time conditions, wherever life takes you.
+            </p>
+        </section>
 
-    <script src="index.js"></script>
+        <form id="searchForm" class="search-bar">
+            <span class="search-icon">⌕</span>
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Search a city, e.g. Lagos"
+                aria-label="Search city"
+                autocomplete="off"
+                required
+            >
+            <button type="submit" id="searchBtn">Search <span>→</span></button>
+        </form>
+
+        <p id="message" class="message" role="status" aria-live="polite">
+            Search for a city to see its current weather.
+        </p>
+
+        <section class="weather-panel">
+            <div class="weather-main">
+                <div class="location-info">
+                    <span class="location-pin">⌖</span>
+                    <span id="location">Lagos, Nigeria</span>
+                </div>
+
+                <p id="dateText" class="date-text">Current local weather</p>
+
+                <div class="temperature-row">
+                    <div>
+                        <h2 id="temperature">--°</h2>
+                        <p id="condition" class="condition">Waiting for weather...</p>
+                    </div>
+                    <div id="weatherIcon" class="weather-icon" aria-hidden="true">🌤️</div>
+                </div>
+
+                <p id="feelsLike" class="feels-like">Feels like --°C</p>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon humidity-icon">♧</div>
+                    <div>
+                        <p>Humidity</p>
+                        <h3 id="humidity">--%</h3>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon wind-icon">〰</div>
+                    <div>
+                        <p>Wind speed</p>
+                        <h3 id="wind">-- km/h</h3>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon rain-icon">☂</div>
+                    <div>
+                        <p>Precipitation</p>
+                        <h3 id="rain">-- mm</h3>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon sun-icon">☼</div>
+                    <div>
+                        <p>Cloud cover</p>
+                        <h3 id="clouds">--%</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="forecast-section">
+            <div class="section-title">
+                <div>
+                    <p class="eyebrow">PLAN AHEAD</p>
+                    <h2>Next 5 days</h2>
+                </div>
+                <span class="forecast-label">DAILY FORECAST</span>
+            </div>
+
+            <div id="forecastList" class="forecast-list">
+                <p class="forecast-placeholder">
+                    Your forecast will appear here after you search.
+                </p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span>Made for your everyday.</span>
+            <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">
+                Weather data by Open-Meteo
+            </a>
+        </footer>
+    </main>
 </body>
 </html>
